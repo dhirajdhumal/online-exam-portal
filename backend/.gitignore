@@ -2,3 +2,13 @@ node_modules/
 .env
 .DS_Store
 *.log
+.env.example
+DOCUMENTATION_INDEX.md
+postman_collection.json
+POSTMAN_GUIDE.md
+PROJECT_STRUCTURE.md
+QUICK_START.md
+README.md
+SEEDER_GUIDE.md
+seeder.js
+START_HERE.md
