@@ -91,7 +91,9 @@ export const getResultByExam = async (req, res, next) => {
     const result = await Result.findOne({
       studentId: req.user._id,
       examId: req.params.examId
-    }).populate('examId', 'title description totalMarks passingMarks');
+    })
+      .populate('examId', 'title description totalMarks passingMarks duration')
+      .populate('studentId', 'name email standard division rollNo phone');
 
     if (!result) {
       return res.status(404).json({

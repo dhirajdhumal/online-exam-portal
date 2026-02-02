@@ -1,0 +1,122 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-dark) 0%, #3a3a3a 100%);
+  padding: 20px;
+}
+
+.register-card {
+  background: var(--color-white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(28, 28, 28, 0.3);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid var(--color-gray);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-header h1 {
+  font-size: 24px;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+}
+
+.register-header h2 {
+  font-size: 28px;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.error-message {
+  background: #fee;
+  color: var(--color-danger);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--color-danger);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-dark);
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 2px solid var(--color-gray);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  background: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-dark);
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.btn-primary {
+  padding: 14px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 28, 28, 0.3);
+}
+
+.btn-primary:disabled {
+  background: var(--color-gray);
+  cursor: not-allowed;
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.register-footer a {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}

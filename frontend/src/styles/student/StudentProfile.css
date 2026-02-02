@@ -1,0 +1,156 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.profile-card {
+  background: var(--color-white);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--color-gray);
+  margin-bottom: 24px;
+}
+
+.profile-card h2 {
+  color: var(--color-dark);
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 2px solid var(--color-gray);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-dark);
+}
+
+.form-group input:disabled {
+  background: var(--color-beige);
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: #2a2a2a;
+}
+
+.btn-secondary {
+  background: var(--color-gray);
+  color: var(--color-dark);
+}
+
+.btn-secondary:hover {
+  background: #c5c8c4;
+}
+
+.success-message {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: var(--color-success);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideInRight 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.success-message::before {
+  content: '✓';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.error-message {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: var(--color-danger);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideInRight 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.error-message::before {
+  content: '✕';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .success-message,
+  .error-message {
+    top: 70px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+  }
+}

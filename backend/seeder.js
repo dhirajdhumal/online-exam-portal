@@ -40,14 +40,22 @@ const importData = async () => {
       name: 'John Doe',
       email: 'john@example.com',
       password: 'student123',
-      role: 'student'
+      role: 'student',
+      standard: '10th',
+      division: 'A',
+      rollNo: '101',
+      phone: '+91 9876543210'
     });
 
     const student2 = await User.create({
       name: 'Jane Smith',
       email: 'jane@example.com',
       password: 'student123',
-      role: 'student'
+      role: 'student',
+      standard: '10th',
+      division: 'B',
+      rollNo: '102',
+      phone: '+91 9876543211'
     });
 
     // Create Exam

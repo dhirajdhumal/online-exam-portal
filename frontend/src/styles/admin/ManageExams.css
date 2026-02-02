@@ -1,0 +1,193 @@
+.exam-management-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.exam-management-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.exam-management-header h1 {
+  color: #1C1C1C;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.exam-management-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.exam-management-form-wrapper {
+  background: #FAFAFF;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exam-management-form .form-group {
+  margin-bottom: 20px;
+}
+
+.exam-management-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.exam-management-form input,
+.exam-management-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #DADDD8;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.exam-management-form input:focus,
+.exam-management-form textarea:focus {
+  outline: none;
+  border-color: #1C1C1C;
+}
+
+.exam-management-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-hint {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  font-size: 12px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ECEBE4;
+}
+
+.btn-cancel,
+.btn-submit {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel {
+  background: #ECEBE4;
+  color: #1C1C1C;
+}
+
+.btn-cancel:hover {
+  background: #DADDD8;
+}
+
+.btn-submit {
+  background: #1C1C1C;
+  color: white;
+}
+
+.btn-submit:hover {
+  background: #333;
+}
+
+/* Toast Notifications */
+.toast-success,
+.toast-error {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toast-success {
+  background: #4CAF50;
+  color: white;
+}
+
+.toast-success::before {
+  content: '✓ ';
+  font-weight: bold;
+}
+
+.toast-error {
+  background: #DC3545;
+  color: white;
+}
+
+.toast-error::before {
+  content: '✕ ';
+  font-weight: bold;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .exam-management-container {
+    padding: 15px;
+  }
+
+  .exam-management-form-wrapper {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 16px;
+  color: #666;
+}

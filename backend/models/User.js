@@ -25,6 +25,22 @@ const userSchema = new mongoose.Schema({
     enum: ['admin', 'student'],
     default: 'student'
   },
+  standard: {
+    type: String,
+    default: ''
+  },
+  division: {
+    type: String,
+    default: ''
+  },
+  rollNo: {
+    type: String,
+    default: ''
+  },
+  phone: {
+    type: String,
+    default: ''
+  },
   createdAt: {
     type: Date,
     default: Date.now
