@@ -116,6 +116,25 @@ const ViewResult = () => {
     doc.setFont('helvetica', 'bold');
     doc.text(result.passed ? 'PASSED' : 'FAILED', 50, yPos + 10, { align: 'center' });
     
+    // Grade badge
+    const grade = getGrade(result.percentage);
+    const gradeColorMap = {
+      'O': [76, 175, 80],
+      'A+': [102, 187, 106],
+      'A': [129, 199, 132],
+      'B+': [255, 193, 7],
+      'B': [255, 213, 79],
+      'C': [255, 152, 0],
+      'F': [220, 53, 69]
+    };
+    const gradeColor = gradeColorMap[grade] || [100, 100, 100];
+    doc.setFillColor(...gradeColor);
+    doc.roundedRect(90, yPos, 40, 15, 3, 3, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Grade: ${grade}`, 110, yPos + 10, { align: 'center' });
+    
     doc.setTextColor(...darkColor);
     yPos += 25;
     
@@ -134,6 +153,7 @@ const ViewResult = () => {
     doc.text(`Score Obtained: ${result.score} / ${result.totalMarks}`, 25, yPos);
     yPos += 8;
     doc.text(`Percentage: ${result.percentage.toFixed(2)}%`, 25, yPos);
+    doc.text(`Grade: ${getGrade(result.percentage)}`, 110, yPos);
     yPos += 8;
     doc.text(`Passing Marks: ${result.examId.passingMarks}`, 25, yPos);
     doc.text(`Total Questions: ${result.answers.length}`, 110, yPos);
@@ -163,6 +183,29 @@ const ViewResult = () => {
     return 'low';
   };
 
+  const getGrade = (percentage) => {
+    if (percentage >= 90) return 'O';
+    if (percentage >= 80) return 'A+';
+    if (percentage >= 70) return 'A';
+    if (percentage >= 60) return 'B+';
+    if (percentage >= 50) return 'B';
+    if (percentage >= 40) return 'C';
+    return 'F';
+  };
+
+  const getGradeColor = (grade) => {
+    const colors = {
+      'O': '#4CAF50',
+      'A+': '#66BB6A',
+      'A': '#81C784',
+      'B+': '#FFC107',
+      'B': '#FFD54F',
+      'C': '#FF9800',
+      'F': '#DC3545'
+    };
+    return colors[grade] || '#666';
+  };
+
   if (loading) {
     return (
       <div>
@@ -190,7 +233,15 @@ const ViewResult = () => {
             {result.passed ? '🎉' : '📊'}
           </div>
           <h1 className="result-title">{result.examId.title}</h1>
-          <p className="result-subtitle">Exam Result</p>
+          <p className="result-subtitle">
+            Exam Result - Grade: <span style={{ 
+              color: getGradeColor(getGrade(result.percentage)), 
+              fontWeight: 'bold',
+              fontSize: '18px'
+            }}>
+              {getGrade(result.percentage)}
+            </span>
+          </p>
           <span className={`status-badge ${result.passed ? 'passed' : 'failed'}`}>
             {result.passed ? 'Passed' : 'Failed'}
           </span>
@@ -272,6 +323,12 @@ const ViewResult = () => {
           <div className="performance-details">
             <span>Passing Marks: {result.examId.passingMarks}</span>
             <span>Your Score: {result.score}</span>
+            <span style={{ 
+              color: getGradeColor(getGrade(result.percentage)),
+              fontWeight: 'bold'
+            }}>
+              Grade: {getGrade(result.percentage)}
+            </span>
           </div>
         </div>
 
